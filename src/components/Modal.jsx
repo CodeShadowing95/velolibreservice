@@ -58,7 +58,7 @@ const Modal = () => {
 
       {/* Modal */}
       <div className="flex absolute bottom-0 left-0">
-        <img src="/public/modal_img.png" alt="modal" className="w-[600px]" />
+        <img src="/modal_img.png" alt="modal" className="w-[600px]" />
       </div>
 
       <div className="absolute left-[300px] w-[500px] bg-zinc-800 z-20 rounded-3xl flex flex-col gap-4 overflow-hidden">
