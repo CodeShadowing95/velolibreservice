@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 /* eslint-disable react/prop-types */
-const Stations = ({ stations, onGetPosition, stationId }) => {
+const Stations = ({ stations, onGetPosition, stationId, contract }) => {
   const [togglePanel, setTogglePanel] = useState(false);
   const [stationIndex, setStationIndex] = useState(0);
+
+  const contractRef = useRef(null);
 
   const hidePanel = () => {
     setTogglePanel(!togglePanel);
@@ -18,11 +21,29 @@ const Stations = ({ stations, onGetPosition, stationId }) => {
     if (stationId) {
       setStationIndex(stationId);
     }
-  }, [stationId]);
+
+    if(contractRef.current !== contract) {
+      console.log(contractRef.current, contract);
+      gsap.to("#stations", {
+        duration: 0.25,
+        translateY: "100%",
+        ease: "power1.inOut",
+      });
+
+      gsap.to("#stations", {
+        duration: 1,
+        translateY: "0",
+        ease: "power1.inOut",
+        delay: 1.5
+      });
+
+      contractRef.current = contract;
+    }
+  }, [stationId, contract]);
   
 
   return (
-    <div id="stations" className={`absolute bottom-0 right-0 z-10 ${togglePanel ? "translate-y-full" : "translate-y-0"} transition-transform`}>
+    <div id="stations" className={`absolute bottom-1 right-0 z-10`}>
       <div className="flex w-[calc(100vw-400px)] relative">
         <div className="w-full flex relative gap-4 overflow-x-auto"
           style={{
@@ -34,7 +55,7 @@ const Stations = ({ stations, onGetPosition, stationId }) => {
           {stations.length ?
             stations.map((station) => (
               // Station implementation
-              <div key={station.number} className={`flex flex-col items-center cursor-pointer transition-transform bg-white min-w-60 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 ${station.number === stationIndex ? "border-[5px] border-blue-500/50 scale-100" : "border hover:scale-95"}`} onClick={() => goToPosition(station?.position.latitude, station?.position.longitude, station.number)}>
+              <div key={station.number} className={`flex flex-col items-center cursor-pointer transition-transform bg-white min-w-60 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 shadow-xl ${station.number === stationIndex ? "border-[5px] border-blue-500/50 scale-100" : "border hover:scale-95"}`} onClick={() => goToPosition(station?.position.latitude, station?.position.longitude, station.number)}>
                 {/* Station image */}
                 <div className="w-full h-24 flex justify-center items-center mb-2 rounded-t-xl">
                   <img src="/location_banner.jpg" alt="station" className="w-full h-full object-cover rounded-t-xl" />

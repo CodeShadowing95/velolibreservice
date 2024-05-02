@@ -51,8 +51,8 @@ const Modal = () => {
       </div>
 
       {/* Message */}
-      <div className="absolute top-40 left-12 rounded-xl w-[200px] flex justify-center items-center bg-zinc-900 p-4 text-white gap-4 border">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 7q.425 0 .713-.288T13 6q0-.425-.288-.712T12 5q-.425 0-.712.288T11 6q0 .425.288.713T12 7m0 8q.425 0 .713-.288T13 14v-4q0-.425-.288-.712T12 9q-.425 0-.712.288T11 10v4q0 .425.288.713T12 15m-6 3l-2.3 2.3q-.475.475-1.088.213T2 19.575V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.587 1.413T20 18z"/></svg>
+      <div className="absolute top-36 left-10 rounded-xl w-[250px] flex justify-center items-center bg-zinc-900 p-4 text-white gap-4 border">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-14 h-14" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 7q.425 0 .713-.288T13 6q0-.425-.288-.712T12 5q-.425 0-.712.288T11 6q0 .425.288.713T12 7m0 8q.425 0 .713-.288T13 14v-4q0-.425-.288-.712T12 9q-.425 0-.712.288T11 10v4q0 .425.288.713T12 15m-6 3l-2.3 2.3q-.475.475-1.088.213T2 19.575V4q0-.825.588-1.412T4 2h16q.825 0 1.413.588T22 4v12q0 .825-.587 1.413T20 18z"/></svg>
         <p className="text-xs font-light">Hop hop! Pas si vite, j'ai senti votre envie de dévorer ma Map, mais avant ça les réponses aux questions de la partie théorique</p>
       </div>
 

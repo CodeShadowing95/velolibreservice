@@ -48,7 +48,6 @@ const InteractiveMap = () => {
     setStationId(0);
     setStationFromContract({});
   }
-  
 
   useEffect(() => {
     getStationsFromContract(contract)
@@ -61,7 +60,6 @@ const InteractiveMap = () => {
       switchContract(currentContract);
     }
 
-    console.log(stationFromContract);
   }, [contract, zoom]);
 
   useEffect(() => {
@@ -128,7 +126,7 @@ const InteractiveMap = () => {
       <MapOptions zoom={zoom} onZoom={setZoom} onResetZoom={setZoom} />
       
       {/* Liste des stations par contract */}
-      <Stations stations={stations} onGetPosition={setStationLocation} stationId={stationId}  />
+      <Stations stations={stations} onGetPosition={setStationLocation} stationId={stationId} contract={contract}  />
     </div>
   )
 }
