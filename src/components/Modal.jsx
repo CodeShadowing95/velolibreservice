@@ -14,14 +14,14 @@ const Modal = () => {
     gsap.to("#title", {
       duration: 0.5,
       translateY: "-50px",
-      delay: 2.5,
+      delay: 9.5,
       ease: "power1.inOut"
     });
 
     gsap.to("#subtitle", {
       duration: 0.5,
       translateY: "-65px",
-      delay: 2.6,
+      delay: 9.6,
       ease: "power1.inOut"
     })
 
@@ -71,7 +71,7 @@ const Modal = () => {
         {/* Content */}
         <div className="flex flex-col w-full">
           {/* 1st question */}
-          <div className="w-full cursor-pointer transition-colors hover:bg-zinc-900/50 group border-b border-zinc-900" onClick={() => nextQuestion(1)}>
+          <div className={`w-full cursor-pointer transition-colors ${questionId === 1 ? "bg-zinc-900/50" : "hover:bg-zinc-900/50"} group border-b border-zinc-900`} onClick={() => nextQuestion(1)}>
             <div className="flex justify-between items-center py-4 pl-4 pr-2 ">
               <div className="w-10/12">
                 <p className="text-sm font-light text-white">Qu'est-ce qu'une API ? Donner un exemple d'utilisation d'une API dans un projet</p>
@@ -81,7 +81,7 @@ const Modal = () => {
           </div>
 
           {/* 2nd question */}
-          <div className="w-full cursor-pointer transition-colors hover:bg-zinc-900/50 group border-b border-zinc-900" onClick={() => nextQuestion(2)}>
+          <div className={`w-full cursor-pointer transition-colors ${questionId === 2 ? "bg-zinc-900/50" : "hover:bg-zinc-900/50"} group border-b border-zinc-900`} onClick={() => nextQuestion(2)}>
             <div className="flex justify-between items-center py-4 pl-4 pr-2 ">
               <div className="w-10/12">
                 <p className="text-sm font-light text-white">Qu'est-ce qu'un webhook ? Expliquer son fonctionnement et donner un exemple de son utilisation.</p>
@@ -91,7 +91,7 @@ const Modal = () => {
           </div>
 
           {/* 3rd question */}
-          <div className="w-full cursor-pointer transition-colors hover:bg-zinc-900/50 group border-b border-zinc-900" onClick={() => nextQuestion(3)}>
+          <div className={`w-full cursor-pointer transition-colors ${questionId === 3 ? "bg-zinc-900/50" : "hover:bg-zinc-900/50"} group border-b border-zinc-900`} onClick={() => nextQuestion(3)}>
             <div className="flex justify-between items-center py-4 pl-4 pr-2 ">
               <div className="w-10/12">
                 <p className="text-sm font-light text-white">Quelle est la différence entre une base de données relationnelle et une base de données non relationnelle ?</p>
@@ -101,7 +101,7 @@ const Modal = () => {
           </div>
 
           {/* 4th question */}
-          <div className="w-full cursor-pointer transition-colors hover:bg-zinc-900/50 group border-b border-zinc-900" onClick={() => nextQuestion(4)}>
+          <div className={`w-full cursor-pointer transition-colors ${questionId === 4 ? "bg-zinc-900/50" : "hover:bg-zinc-900/50"} group border-b border-zinc-900`} onClick={() => nextQuestion(4)}>
             <div className="flex justify-between items-center py-4 pl-4 pr-2 ">
               <div className="w-10/12">
                 <p className="text-sm font-light text-white">Déjà utilisé Python ? Explique brièvement ton expérience ou tes connaissances concernant le langage.</p>
@@ -111,7 +111,7 @@ const Modal = () => {
           </div>
 
           {/* 5th question */}
-          <div className="w-full cursor-pointer transition-colors hover:bg-zinc-900/50 group" onClick={() => nextQuestion(5)}>
+          <div className={`w-full cursor-pointer transition-colors ${questionId === 5 ? "bg-zinc-900/50" : "hover:bg-zinc-900/50"} group`} onClick={() => nextQuestion(5)}>
             <div className="flex justify-between items-center py-4 pl-4 pr-2 ">
               <div className="w-10/12">
                 <p className="text-sm font-light text-white">Déjà utilisé Wordpress ou Odoo ? Explique brièvement ton expérience ou tes connaissances concernant ces outils.</p>
