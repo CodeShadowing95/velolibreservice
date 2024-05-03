@@ -24,3 +24,16 @@
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.rotate_xz {
+  animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
