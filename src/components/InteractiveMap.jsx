@@ -50,6 +50,7 @@ const InteractiveMap = () => {
     setStationFromContract({});
     setStationLocation({ latitude: 0, longitude: 0 });
     setStationId(0);
+    setZoom(11);
   }
 
   useEffect(() => {
