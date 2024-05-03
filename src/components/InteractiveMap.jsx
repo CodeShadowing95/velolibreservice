@@ -46,6 +46,7 @@ const InteractiveMap = () => {
   const goToContract = (contract) => {
     setContract(contract);
     setStationId(0);
+    setStations([]);
     setStationFromContract({});
     setStationLocation({ latitude: 0, longitude: 0 });
     setStationId(0);
