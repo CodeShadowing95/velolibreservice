@@ -7,5 +7,6 @@ import satellite_streets from "../assets/MapStyles/satellite_streets.png";
 import satellite from "../assets/MapStyles/satellite.png";
 import standard from "../assets/MapStyles/standard.png";
 import streets from "../assets/MapStyles/streets.png";
+import defaultStyle from "../assets/MapStyles/default.png";
 
-export { dark, light, navigation_day, navigation_night, satellite, streets, outdoors, satellite_streets, standard }
+export { dark, light, navigation_day, navigation_night, satellite, streets, outdoors, satellite_streets, standard, defaultStyle }

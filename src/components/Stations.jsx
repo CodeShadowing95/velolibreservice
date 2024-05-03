@@ -13,7 +13,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
 
     gsap.to("#stations", {
       duration: 0.5,
-      translateY: openPanel ? "0" : "101%",
+      translateY: openPanel ? "0" : "103%",
       ease: "power1.inOut",
     });
   };
@@ -34,7 +34,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
       console.log(contractRef.current, contract);
       gsap.to("#stations", {
         duration: 0.5,
-        translateY: "110%",
+        translateY: "113%",
         ease: "power1.inOut",
       });
 

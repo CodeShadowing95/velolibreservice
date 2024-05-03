@@ -7,6 +7,7 @@ import { locations } from "../utils/constants";
 import { getStationsFromContract } from "../utils/services";
 import Stations from "./Stations";
 import Station from "./Station";
+import MapAppearrance from "./MapAppearrance";
 
 
 const InteractiveMap = () => {
@@ -17,8 +18,9 @@ const InteractiveMap = () => {
   const [stations, setStations] = useState([]);
   const [stationFromContract, setStationFromContract] = useState({});
   const [contract, setContract] = useState("rouen");
-  const [zoom, setZoom] = useState(11);
   const [stationId, setStationId] = useState(0);
+  const [zoom, setZoom] = useState(11);
+  const [mapStyle, setMapStyle] = useState("mapbox://styles/mapbox/streets-v9");
 
   const switchContract = (currentContract) => {
     mapRef.current.flyTo({
@@ -96,7 +98,7 @@ const InteractiveMap = () => {
           // pitch: 60,
         }}
         style={{width: "100%", height: "100%"}}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapStyle={mapStyle}
         // mapStyle="mapbox://styles/mapbox/standard"
       >
         {/* Si l'utilisateur a fait une recherche d'un lieu en particulier, on affiche un marker à la position du lieu */}
@@ -135,6 +137,9 @@ const InteractiveMap = () => {
       
       {/* Liste des stations par contract */}
       <Stations stations={stations} onGetPosition={setStationLocation} stationId={stationId} contract={contract}  />
+
+      {/* Bouton de changement de carte */}
+      <MapAppearrance onSetMapStyle={setMapStyle} />
     </div>
   )
 }

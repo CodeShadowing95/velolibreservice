@@ -1,4 +1,4 @@
-import { dark, light, navigation_day, navigation_night, outdoors, satellite, satellite_streets, standard, streets } from "../assets";
+import { dark, light, navigation_day, navigation_night, outdoors, satellite, satellite_streets, standard, streets, defaultStyle } from "../assets";
 import { bicike, bysykkel, citycycle, cristlib, cyclic, cyclocity, cyclocity_toyama, cyclocity_vilnius, dublinbikes, levelo, libiavelo, lundahoj, naolib, sevici, tusbic, velam, velo2, velocite, velov, villo, velOstan, veloh, veloo } from "../assets/ContractLogos";
  "../assets/ContractLogos";
 
@@ -175,6 +175,11 @@ export const criterias = [
 export const mapStyles = [
   {
     name: "Standard",
+    style: "mapbox://styles/mapbox/streets-v9",
+    image: defaultStyle
+  },
+  {
+    name: "3D",
     style: "mapbox://styles/mapbox/standard",
     image: standard
   },
