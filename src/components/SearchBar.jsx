@@ -99,12 +99,15 @@ const SearchBar = ({ onGetStationFromContract }) => {
   }, [stations, stationsAddresses, stationsNames])
 
   return (
-    <div className="absolute top-4 left-1/3 z-10">
-      <div className="flex relative rounded-xl shadow-lg">
-        <div className="w-96 relative">
+    <div className="absolute top-4 lg:left-1/3 flex gap-2 px-2 z-10">
+      <div className="bg-white rounded-xl p-4 lg:hidden block shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" viewBox="0 0 24 24"><path fill="currentColor" d="M2 14h6v6H2M16 8h-6v2h6M2 10h6V4H2m8 0v2h12V4M10 20h6v-2h-6m0-2h12v-2H10"/></svg>
+      </div>
+      <div className="flex relative rounded-xl shadow-md">
+        <div className="w-full sm:w-96 relative">
 
           {/* Search Bar */}
-          <form className={`relative flex items-center w-full h-14 rounded-tl-xl ${searchTerm && enableSearchPanel ? 'rounded-bl-none' : 'rounded-bl-xl shadow-lg'} bg-white ps-4 overflow-hidden`} onSubmit={handleSubmit}>
+          <form className={`relative flex items-center w-full h-14 rounded-tl-xl ${searchTerm && enableSearchPanel ? 'rounded-bl-none' : 'rounded-bl-xl'} bg-white ps-4 overflow-hidden`} onSubmit={handleSubmit}>
             <div className="grid place-items-center h-full w-12 text-gray-300">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24"><path fill="#9CA3AF" d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3zM9.5 14q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14"/></svg>
             </div>
@@ -120,7 +123,7 @@ const SearchBar = ({ onGetStationFromContract }) => {
           </form>
 
           {/* List */}
-          <div className={`absolute w-full translate-y-0 py-4 h-72 overflow-auto bg-white z-10 ${searchTerm && enableSearchPanel ? "shadow-lg border-t border-t-gray-300 rounded-bl-xl rounded-br-xl" : "hidden"}`}>
+          <div className={`absolute w-full translate-y-0 py-4 h-72 overflow-auto bg-white z-10 ${searchTerm && enableSearchPanel ? "border-t shadow-xl border-t-gray-300 rounded-bl-xl rounded-br-xl" : "hidden"}`}>
             <div className="flex flex-col justify-center items-center gap-1">
               {criteria === "station" ? (
                 filteredStations.length > 0 ?

@@ -7,7 +7,6 @@ import { locations } from "../utils/constants";
 import { getStationsFromContract } from "../utils/services";
 import Stations from "./Stations";
 import Station from "./Station";
-import MapAppearrance from "./MapAppearrance";
 
 
 const InteractiveMap = () => {
@@ -133,13 +132,10 @@ const InteractiveMap = () => {
       <Station info={stationFromContract} />
 
       {/* Options de carte */}
-      <MapOptions zoom={zoom} onZoom={setZoom} onResetZoom={setZoom} />
+      <MapOptions zoom={zoom} onZoom={setZoom} onResetZoom={setZoom} onSetMapStyle={setMapStyle} />
       
       {/* Liste des stations par contract */}
       <Stations stations={stations} onGetPosition={setStationLocation} stationId={stationId} contract={contract}  />
-
-      {/* Bouton de changement de carte */}
-      <MapAppearrance onSetMapStyle={setMapStyle} />
     </div>
   )
 }

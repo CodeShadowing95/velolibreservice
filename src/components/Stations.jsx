@@ -31,7 +31,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
     }
 
     if(contractRef.current !== contract) {
-      console.log(contractRef.current, contract);
+      // console.log(contractRef.current, contract);
       gsap.to("#stations", {
         duration: 0.5,
         translateY: "113%",
@@ -51,15 +51,15 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
   
 
   return (
-    <div id="stations" className={`absolute bottom-1 right-0 z-10`}>
-      <div className="flex w-[calc(100vw-400px)] relative">
+    <div id="stations" className={`absolute bottom-1 right-0 z-10 inset-x-0`}>
+      <div className="flex w-full relative">
         {/* Hide panel */}
-        <div className="flex justify-center items-center px-4 rounded-t-md absolute left-8 -translate-y-full bg-gray-500 shadow-xl cursor-pointer z-[1px] hover:bg-gray-700 transition-colors" onClick={() => togglePanel()}>
-          <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${openPanel ? 'rotate-0' : '-rotate-180'} transition-transform duration-200`} viewBox="0 0 24 24"><path fill="#ffffff" d="M9.162 13.5q-.182 0-.293-.124t-.111-.289q0-.04.13-.283l2.677-2.677q.093-.092.2-.142t.235-.05t.235.05t.2.142l2.677 2.677q.055.056.093.129t.037.157q0 .168-.11.289t-.294.121z"/></svg>
-          <p className="text-white text-xs font-bold ml-2">Résultats de recherche</p>
+        <div className="flex items-center px-4 rounded-md absolute right-4 -translate-y-7 bg-white shadow-xl cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => togglePanel()}>
+          <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${openPanel ? 'rotate-0' : '-rotate-180'} transition-transform duration-200`} viewBox="0 0 24 24"><path fill="currentColor" d="M9.162 13.5q-.182 0-.293-.124t-.111-.289q0-.04.13-.283l2.677-2.677q.093-.092.2-.142t.235-.05t.235.05t.2.142l2.677 2.677q.055.056.093.129t.037.157q0 .168-.11.289t-.294.121z"/></svg>
+          <p className="text-gray-900 text-xs font-bold ml-2">Résultats de recherche</p>
         </div>
 
-        <div className="w-full flex relative gap-4 overflow-x-auto"
+        <div className="w-full flex relative gap-4 overflow-x-auto px-2"
           // style={{
           //   "scrollbarWidth": "5px",
           //   "msOverflowStyle": "none",
@@ -69,7 +69,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
           {stations.length ?
             stations.map((station) => (
               // Station implementation
-              <div key={station.number} className={`flex flex-col items-center cursor-pointer transition-transform bg-white min-w-60 max-h-80 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 shadow-xl ${station.number === stationIndex ? "border-[5px] border-blue-500/50 scale-100" : "border hover:scale-95"}`} onClick={() => goToPosition(station?.position.latitude, station?.position.longitude, station.number)}>
+              <div key={station.number} className={`flex flex-col items-center cursor-pointer transition-transform bg-white min-w-60 max-h-80 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 shadow-xl ${station.number === stationIndex ? "border-[5px] border-blue-500/50 scale-100" : "border hover:scale-95"}`} onClick={() => goToPosition(station?.position.latitude, station?.position.longitude, station.number)}>
                 {/* Station image */}
                 <div className="w-full h-24 flex justify-center items-center mb-2 rounded-t-xl">
                   <img src="/location_banner.jpg" alt="station" className="w-full h-full object-cover rounded-t-xl" />

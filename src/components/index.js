@@ -5,7 +5,6 @@ import MapOptions from "./MapOptions";
 import Station from "./Station";
 import Preloader from "./Preloader";
 import Modal from "./Modal";
-import MapAppearrance from "./MapAppearrance";
 
 export {
   InteractiveMap,
@@ -15,5 +14,4 @@ export {
   Station,
   Preloader,
   Modal,
-  MapAppearrance
 }

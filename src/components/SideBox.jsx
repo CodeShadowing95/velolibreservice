@@ -52,24 +52,23 @@ const SideBox = ({ onGoToContract }) => {
   }, []);
 
   return (
-    <div className="absolute top-4 left-2 z-10">
-      <div className="w-80 pb-2 flex flex-col shadow-lg rounded-md overflow-hidden bg-white bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10">
-        {/* Header */}
-        <div className="w-full h-14 bg-gradient-to-r from-sky-400 to-sky-500 rounded-t-md">
-          <div className="w-full h-full flex justify-between items-center px-2">
-            <div className="w-10 h-10 flex justify-center items-center p-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className='w-full h-full object-contain' viewBox="0 0 24 24"><path fill="#ffffff" d="M8 17q.425 0 .713-.288T9 16t-.288-.712T8 15t-.712.288T7 16t.288.713T8 17m0-4q.425 0 .713-.288T9 12t-.288-.712T8 11t-.712.288T7 12t.288.713T8 13m0-4q.425 0 .713-.288T9 8t-.288-.712T8 7t-.712.288T7 8t.288.713T8 9m3 8h6v-2h-6zm0-4h6v-2h-6zm0-4h6V7h-6zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z"/></svg>
-            </div>
-            <p className="text-white font-roboto font-medium text-sm">Velo Libre Service</p>
-            <div className="flex justify-center items-center p-2 hover:bg-sky-600 rounded-full cursor-pointer" onClick={() => toggleSidebox()}>
-              <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 object-contain ${enableDelay ? '-rotate-180' : '-rotate-0'} transition-transform duration-200`} viewBox="0 0 24 24"><path fill="#ffffff" d="M9.162 13.5q-.182 0-.293-.124t-.111-.289q0-.04.13-.283l2.677-2.677q.093-.092.2-.142t.235-.05t.235.05t.2.142l2.677 2.677q.055.056.093.129t.037.157q0 .168-.11.289t-.294.121z"/></svg>
-            </div>
+    <div className="absolute top-4 left-2 w-80 invisible lg:visible">
+      {/* Header */}
+      <div className={`w-full h-14 bg-gradient-to-r from-sky-400 to-sky-500 z-20 ${openSidebox ? "rounded-t-md" : "rounded-md"}`}>
+        <div className="w-full h-full flex justify-between items-center px-2">
+          <div className="w-10 h-10 flex justify-center items-center p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className='w-full h-full object-contain' viewBox="0 0 24 24"><path fill="#ffffff" d="M8 17q.425 0 .713-.288T9 16t-.288-.712T8 15t-.712.288T7 16t.288.713T8 17m0-4q.425 0 .713-.288T9 12t-.288-.712T8 11t-.712.288T7 12t.288.713T8 13m0-4q.425 0 .713-.288T9 8t-.288-.712T8 7t-.712.288T7 8t.288.713T8 9m3 8h6v-2h-6zm0-4h6v-2h-6zm0-4h6V7h-6zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z"/></svg>
+          </div>
+          <p className="text-white font-roboto font-medium text-sm">Velo Libre Service</p>
+          <div className="flex justify-center items-center p-2 hover:bg-sky-600 rounded-full cursor-pointer" onClick={() => toggleSidebox()}>
+            <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 object-contain ${enableDelay ? '-rotate-180' : '-rotate-0'} transition-transform duration-200`} viewBox="0 0 24 24"><path fill="#ffffff" d="M9.162 13.5q-.182 0-.293-.124t-.111-.289q0-.04.13-.283l2.677-2.677q.093-.092.2-.142t.235-.05t.235.05t.2.142l2.677 2.677q.055.056.093.129t.037.157q0 .168-.11.289t-.294.121z"/></svg>
           </div>
         </div>
-
+      </div>
+      <div className={`w-full pb-2 ${openSidebox ? 'flex' : 'hidden'} flex-col shadow-lg rounded-b-md overflow-hidden bg-white bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-60 z-0`}>
         {/* Body */}
         <div className="flex relative overflow-hidden">
-          <div className={`w-full p-2 h-[calc(100vh-115px)] ${openSidebox ? 'flex' : 'hidden'} ${toContract ? '-translate-x-full' : 'translate-x-0'} gap-3 overflow-auto transition-all`}>
+          <div className={`w-full p-2 h-[360px] ${toContract ? '-translate-x-full' : 'translate-x-0'} gap-3 overflow-auto transition-all`}>
             {/* Contracts listing followed by number of stations */}
             <div className="w-full flex flex-col">
               {/* Title */}

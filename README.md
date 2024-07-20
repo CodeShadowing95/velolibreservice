@@ -1,4 +1,4 @@
-# JCDecaux API Client - Velo libre service App
+# JCDecaux API Client - Application de géolocalisation de stations de vélos en libre-service
 
 ## Vue d'ensemble
 

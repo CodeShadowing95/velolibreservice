@@ -49,19 +49,19 @@ const Preloader = () => {
         <div id="left" className="w-1/2 h-full bg-gray-200"></div>
 
         {/* Center */}
-        <div id="blockCenter" className="absolute top-auto left-auto flex flex-col gap-8 justify-center items-center w-[400px] h-60 z-30 overflow-hidden">
+        <div id="blockCenter" className="absolute top-auto left-auto flex flex-col gap-8 justify-center items-center w-[500px] h-60 z-30 overflow-hidden">
           <div id="welcome" className="flex justify-between items-center gap-4">
             {/* Photo */}
             <img src="/profile.jpeg" className="w-24 h-24 rounded-full" alt="profil" />
 
             {/* Text */}
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center gap-2">
               <p className="text-5xl font-bold text-gray-700 italic">
-                Bienvenue
+                Bikemapper
               </p>
 
-              <p className="text-base italic text-gray-500">
-                Profitez bien de la visite
+              <p className="text-base text-gray-700 font-light">
+                N'hésitez pas à mettre une ⭐ sur mon <a href="https://github.com/CodeShadowing95/velolibreservice" target="_blank" className="text-blue-500">GitHub</a>😉
               </p>
             </div>
           </div>
