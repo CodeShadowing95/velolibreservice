@@ -72,11 +72,8 @@ const SideBox = ({ onGoToContract }) => {
             {/* Contracts listing followed by number of stations */}
             <div className="w-full flex flex-col">
               {/* Title */}
-              <div className="w-full flex justify-between items-center px-2 mb-2">
+              <div className="w-full flex px-2 my-2">
                 <p className="font-roboto font-bold text-sm">Contrats</p>
-                <div className="w-8 h-8 flex justify-center items-center p-2 rounded-full hover:bg-black/20">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-contain" viewBox="0 0 24 24"><path fill="#000000" d="m12 10.108l-4.246 4.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354l4.389-4.388q.242-.243.565-.243t.565.243l4.389 4.388q.14.14.15.344t-.15.364t-.354.16t-.354-.16z"/></svg>
-                </div>
               </div>
               
               {/* Searchbar for contracts */}
