@@ -43,7 +43,7 @@ const Preloader = () => {
 
 
   return (
-    <div id="preloader" className="absolute top-0 left-0 w-full h-full translate-y-0 flex justify-center items-center z-40 transition-transform overflow-hidden">
+    <div id="preloader" className="absolute top-0 left-0 w-full h-full translate-y-0 flex justify-center items-center z-50 transition-transform overflow-hidden">
       <div className="w-full h-full flex justify-center items-center overflow-hidden">
         {/* Left side */}
         <div id="left" className="w-1/2 h-full bg-gray-200"></div>

@@ -54,7 +54,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
     <div id="stations" className={`absolute bottom-1 right-0 z-10 inset-x-0`}>
       <div className="flex w-full relative">
         {/* Hide panel */}
-        <div className="flex items-center px-4 rounded-md absolute right-4 -translate-y-7 bg-white shadow-xl cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => togglePanel()}>
+        <div className="flex items-center px-4 rounded-md absolute left-1/2 -translate-y-7 bg-white shadow-xl cursor-pointer hover:bg-gray-50 transition-colors" onClick={() => togglePanel()}>
           <svg xmlns="http://www.w3.org/2000/svg" className={`w-6 h-6 ${openPanel ? 'rotate-0' : '-rotate-180'} transition-transform duration-200`} viewBox="0 0 24 24"><path fill="currentColor" d="M9.162 13.5q-.182 0-.293-.124t-.111-.289q0-.04.13-.283l2.677-2.677q.093-.092.2-.142t.235-.05t.235.05t.2.142l2.677 2.677q.055.056.093.129t.037.157q0 .168-.11.289t-.294.121z"/></svg>
           <p className="text-gray-900 text-xs font-bold ml-2">Résultats de recherche</p>
         </div>
@@ -69,7 +69,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
           {stations.length ?
             stations.map((station) => (
               // Station implementation
-              <div key={station.number} className={`flex flex-col items-center cursor-pointer transition-transform bg-white min-w-60 max-h-80 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 shadow-xl ${station.number === stationIndex ? "border-[5px] border-blue-500/50 scale-100" : "border hover:scale-95"}`} onClick={() => goToPosition(station?.position.latitude, station?.position.longitude, station.number)}>
+              <div key={station.number} className={`flex flex-col items-center cursor-pointer transition-transform bg-white min-w-[300px] h-70 rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-80 shadow-xl ${station.number === stationIndex ? "border-[5px] border-blue-500/50 scale-100" : "border hover:scale-105"}`} onClick={() => goToPosition(station?.position.latitude, station?.position.longitude, station.number)}>
                 {/* Station image */}
                 <div className="w-full h-24 flex justify-center items-center mb-2 rounded-t-xl">
                   <img src="/location_banner.jpg" alt="station" className="w-full h-full object-cover rounded-t-xl" />
@@ -78,7 +78,7 @@ const Stations = ({ stations, onGetPosition, stationId, contract }) => {
                 <div className="w-full flex items-center px-2">
                   {/* Station name & address */}
                   <div className="w-full flex flex-col">
-                    <p className="text-sm font-bold font-lato break-words">{station.name ? station.name.slice(7) : "Non renseigné"}</p>
+                    <p className="text-sm font-bold font-lato break-words">{station.name}</p>
                     <p className="text-xs font-medium font-lato text-gray-500">{station.address.toLowerCase() ? station.address : "Adresse inconnue"}</p>
                   </div>
                 </div>

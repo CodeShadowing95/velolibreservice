@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { getContracts, getStationsFromContract } from '../utils/services';
 import { countryCodes, locations } from '../utils/constants';
 
-const SideBox = ({ onGoToContract }) => {
+const SideBox = ({ onGoToContract, stateBox }) => {
   const [contracts, setContracts] = useState([]);
   const [openSidebox, setOpenSidebox] = useState(true);
   const [enableDelay, setEnableDelay] = useState(false);
@@ -52,7 +52,7 @@ const SideBox = ({ onGoToContract }) => {
   }, []);
 
   return (
-    <div className="absolute top-4 left-2 w-80 invisible lg:visible">
+    <div className={`absolute lg:top-4 top-24 left-2 w-80 transition-all duration-300 z-40 ${window.innerWidth >= 1024 ? "translate-x-0" : stateBox ? "translate-x-0" : "-translate-x-[150%]"}`}>
       {/* Header */}
       <div className={`w-full h-14 bg-gradient-to-r from-sky-400 to-sky-500 z-20 ${openSidebox ? "rounded-t-md" : "rounded-md"}`}>
         <div className="w-full h-full flex justify-between items-center px-2">

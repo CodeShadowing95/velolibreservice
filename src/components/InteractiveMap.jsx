@@ -20,6 +20,7 @@ const InteractiveMap = () => {
   const [stationId, setStationId] = useState(0);
   const [zoom, setZoom] = useState(11);
   const [mapStyle, setMapStyle] = useState("mapbox://styles/mapbox/streets-v9");
+  const [boxState, setBoxState] = useState(false);
 
   const switchContract = (currentContract) => {
     mapRef.current.flyTo({
@@ -123,10 +124,10 @@ const InteractiveMap = () => {
       </Map>
 
       {/* Barre de recherche */}
-      <SearchBar onGetStationFromContract={setStationFromContract} />
+      <SearchBar onGetStationFromContract={setStationFromContract} onDiscardSidebox={setBoxState} />
 
       {/* Composant latéral de gauche */}
-      <SideBox onGoToContract={goToContract} />
+      <SideBox onGoToContract={goToContract} stateBox={boxState} />
 
       {/* Station depuis la barre de recherche */}
       <Station info={stationFromContract} />

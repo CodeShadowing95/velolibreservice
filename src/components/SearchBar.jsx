@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { criterias } from "../utils/constants";
 import { getStations, getStationsInfos } from "../utils/services";
 
-const SearchBar = ({ onGetStationFromContract }) => {
+const SearchBar = ({ onGetStationFromContract, onDiscardSidebox }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [stations, setStations] = useState([]);
   const [stationsNames, setStationsNames] = useState([])
@@ -12,6 +12,7 @@ const SearchBar = ({ onGetStationFromContract }) => {
   const [filteredStations, setFilteredStations] = useState([])
   const [filteredAddresses, setFilteredAddresses] = useState([])
   const [criteria, setCriteria] = useState("station")
+  const [discardSidebox, setDiscardSidebox] = useState(false)
 
   const [enableSearchPanel, setEnableSearchPanel] = useState(true)
   const [toggleDropdown, setToggleDropdown] = useState(false)
@@ -75,6 +76,30 @@ const SearchBar = ({ onGetStationFromContract }) => {
     }
   }
 
+  const toggleSidebox = () => {
+    if(discardSidebox) {
+      setDiscardSidebox(false);
+      onDiscardSidebox(false);
+    } else {
+      setDiscardSidebox(true);
+      onDiscardSidebox(true);
+    }
+  }
+
+  useEffect(() => {
+    // Check if screen size >= 1024
+    const handleResize = () => {
+      if(window.innerWidth >= 1024) {
+        setDiscardSidebox(true);
+        onDiscardSidebox(true);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [])
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (divRef.current && !divRef.current.contains(event.target)) {
@@ -100,8 +125,12 @@ const SearchBar = ({ onGetStationFromContract }) => {
 
   return (
     <div className="absolute top-4 lg:left-1/3 flex gap-2 px-2 z-10">
-      <div className="bg-white rounded-xl p-4 lg:hidden block shadow-md">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" viewBox="0 0 24 24"><path fill="currentColor" d="M2 14h6v6H2M16 8h-6v2h6M2 10h6V4H2m8 0v2h12V4M10 20h6v-2h-6m0-2h12v-2H10"/></svg>
+      <div className="bg-white rounded-xl p-4 lg:hidden block shadow-md" onClick={toggleSidebox}>
+        {discardSidebox ? (
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"/></svg>
+        ) : (
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" viewBox="0 0 24 24"><path fill="currentColor" d="M2 14h6v6H2M16 8h-6v2h6M2 10h6V4H2m8 0v2h12V4M10 20h6v-2h-6m0-2h12v-2H10"/></svg>
+        )}
       </div>
       <div className="flex relative rounded-xl shadow-md">
         <div className="w-full sm:w-96 relative">

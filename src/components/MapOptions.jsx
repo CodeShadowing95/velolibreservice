@@ -60,12 +60,14 @@ const MapOptions = ({ zoom, onZoom, onResetZoom, onSetMapStyle }) => {
       </div>
 
       {/* Options */}
-      <div className={`absolute top-4 right-0 z-10 p-2 rounded-lg bg-white transition-transform ${openMapPanel ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`absolute sm:top-4 top-24 right-0 z-10 p-2 rounded-lg bg-white transition-transform ${openMapPanel ? "translate-x-0" : "translate-x-full"}`}>
         <div className="relative">
           <div className="h-[calc(100vh-250px)] flex flex-col bg-white gap-3 overflow-auto">
             {mapStyles.map((mapStyle, index) => (
               <div key={index} className={`w-full rounded-lg flex flex-col items-center gap-1 p-1 text-sm font-semibold group transition-all ${mapStyle.style === selectedStyle ? "bg-blue-500 text-white" : "hover:bg-blue-200 text-gray-700"}`} onClick={() => toggleMapStyles(mapStyle.style)}>
-                <img src={mapStyle.image} alt="stylemap" className="w-32 h-20 rounded-t-md" />
+                <div className="w-20 h-20 rounded-md">
+                  <img src={mapStyle.image} alt="stylemap" className="w-full h-full rounded-md object-cover" />
+                </div>
                 {mapStyle.name}
               </div>
             ))}
